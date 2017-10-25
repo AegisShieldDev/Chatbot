@@ -41,12 +41,24 @@ public class Chatbot
 	
 	private void buildShoppingList()
 	{
-		
+		shoppingList.add("Snacks");
+		shoppingList.add("Veggies");
+		shoppingList.add("Protine");
+		shoppingList.add("Candy");
+		shoppingList.add("Fruit");
 	}
 	
 	private void buildCuteAnimals()
 	{
 		
+	}
+	
+	private void buildVerbs()
+	{
+		verbs[0] = "like";
+		verbs[1] = "dislike";
+		verbs[2] = "am ambivalent about";
+		verbs[3] = "am thinking about";
 	}
 	
 	private void buildQuestions()
@@ -65,7 +77,11 @@ public class Chatbot
 	{
 		boolean test = true;
 		
-		if(input == null && input.length() <= 2)
+		if(input == null)
+		{
+			test = false;
+		}
+		else if(input.length() <= 2)
 		{
 			test = false;
 		}
