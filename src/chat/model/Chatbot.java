@@ -23,7 +23,6 @@ public class Chatbot
 		this.movieList = movieList;
 		this.shoppingList = shoppingList;
 		this.cuteAnimalMemes = cuteAnimalMemes;
-		this.currentTime = currentTime;
 		this.questions = questions;
 		this.username = username;
 		this.content = content;
@@ -32,6 +31,9 @@ public class Chatbot
 		this.topics = topics;
 		this.verbs = verbs;
 		this.followUps = followUps;
+		
+		buildVerbs();
+		buildShoppingList();
 	}
 
 	private void buildMovieList()
@@ -111,7 +113,13 @@ public class Chatbot
 	
 	public boolean shoppingListChecker(String shoppingItem)
 	{
-		return false;
+		boolean test = false;
+		
+		if(shoppingItem.contains("protine") && shoppingItem.contains("veggies") && shoppingItem.contains("snacks") && !shoppingItem.contains("slug bait"))
+		{
+			test = true;
+		}
+		return test;
 	}
 	
 	public boolean movieTitleChecker(String title)
@@ -151,7 +159,7 @@ public class Chatbot
 
 	public String [] getQuestions()
 	{
-		return null;
+		return questions;
 	}
 	
 	public String[] getVerbs()
@@ -181,12 +189,12 @@ public class Chatbot
 
 	public String getIntro()
 	{
-		return null;
+		return intro;
 	}
 	
 	public LocalTime getCurrentTime()
 	{
-		return null;
+		return currentTime;
 	}
 	
 	public void setUsername(String username)

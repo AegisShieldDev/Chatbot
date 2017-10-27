@@ -152,8 +152,8 @@ public class ChatbotTest
 	@Test
 	public void testGetShoppingList()
 	{
-		assertNotNull("Shopping list can't be null", testedChatbot.getShoppingList());
-		assertTrue("Minimum shopping items not met", testedChatbot.getShoppingList().size() > 4);
+		assertNotNull("Shopping list can't be null", testedChatbot.getShoppingList());						//make sure shopping list is not null
+		assertTrue("Minimum shopping items not met", testedChatbot.getShoppingList().size() > 4);				//make shopping list at least 4
 	}
 
 	@Test
