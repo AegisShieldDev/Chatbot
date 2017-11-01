@@ -20,24 +20,38 @@ public class Chatbot
 	
 	public Chatbot(String username)
 	{
-		this.movieList = movieList;
-		this.shoppingList = shoppingList;
-		this.cuteAnimalMemes = cuteAnimalMemes;
-		this.questions = questions;
+		this.movieList = new ArrayList<Movie>();
+		this.shoppingList = new ArrayList<String>();
+		this.cuteAnimalMemes = new ArrayList<String>();
+		this.questions = new String[10];
 		this.username = username;
-		this.content = content;
-		this.intro = intro;
-		this.currentTime = currentTime;
-		this.topics = topics;
-		this.verbs = verbs;
-		this.followUps = followUps;
+		this.content = "";
+		this.intro = "";
+		this.currentTime = null;
+		this.topics = new String[7];
+		this.verbs = new String[4];
+		this.followUps = new String[5];
 		
 		buildVerbs();
 		buildShoppingList();
+		buildQuestions();
+		buildTopics();
 	}
 
 	private void buildMovieList()
 	{
+		
+	}
+	
+	private void buildTopics()
+	{
+		topics[0] = ("Animals");
+		topics[1] = ("People");
+		topics[2] = ("Time");
+		topics[3] = ("Places");
+		topics[4] = ("Weather");
+		topics[5] = ("News");
+		topics[6] = ("Fun things");
 		
 	}
 	
@@ -65,13 +79,22 @@ public class Chatbot
 	
 	private void buildQuestions()
 	{
-		
+		questions[0] = "What is your name?";
+		questions[1] = "What is your birth date?";
+		questions[2] = "Do you have any pets?";
+		questions[3] = "What sports do you play?";
+		questions[4] = "Do you ski?";
+		questions[5] = "Do you play video games?";
+		questions[6] = "Are you going to college?";
+		questions[7] = "Do you like school?";
+		questions[8] = "What kind of music do you like?";
+		questions[9] = "What are you afraid of?";
 	}
 	
 	public String processConversation(String input)
 	{
 		String chatboxResponse = "";
-		chatboxResponse += "You said:" + ".\n"  + input + "\n";
+		chatboxResponse += "You said:" + "\n"  + input + "\n";
 		
 		chatboxResponse += BuildChatbotResponse();
 		
@@ -81,13 +104,15 @@ public class Chatbot
 	private String BuildChatbotResponse()
 	{
 		String response = "I ";
-		int random = (int)(Math.random() * topics.length);
+		int random = (int)(Math.random() * verbs.length);
+		
+		response += verbs[random];
 		
 		random = (int)(Math.random() * topics.length);
-		response = " " + topics[random] + ".\n";
+		response += " " + topics[random] + ".\n";
 		
-		random = (int)(Math.random() * topics.length);
-		response = " " + questions[random];
+		random = (int)(Math.random() * questions.length);
+		response += " " + questions[random];
 		
 		return response;
 	}
@@ -151,12 +176,33 @@ public class Chatbot
 
 	public boolean quitChecker(String exitString)
 	{
+		if(exitString == null)
+		{
+			return false;
+		}
+		if(exitString.equalsIgnoreCase("quit"))
+		{
+			return true;
+		}
 		return false;
 	}
 
 	public boolean keyboardMashChecker(String sample)
 	{
+		String mash = "qwertyuiop[]asdfghjkl;'zxcvbnm,.//.,mnbvcxz';lkjhgfdsa][poiuytrewq";
+		for(int i = 0; i < mash.length()-2; i++)
+		{
+			if(sample.equalsIgnoreCase(mash.substring(i, i+3)))
+			{
+				return true;
+			}
+		}
 		return false;
+	}
+	
+	public String toString()
+	{
+		return "";
 	}
 	
 	public List<Movie> getMovieList()
@@ -223,4 +269,6 @@ public class Chatbot
 	{
 		this.content = content;
 	}
+	
+	
 }
