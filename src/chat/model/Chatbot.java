@@ -70,9 +70,26 @@ public class Chatbot
 	
 	public String processConversation(String input)
 	{
-		boolean test = false;
+		String chatboxResponse = "";
+		chatboxResponse += "You said:" + ".\n"  + input + "\n";
 		
-		return (input);
+		chatboxResponse += BuildChatbotResponse();
+		
+		return chatboxResponse;
+	}
+	
+	private String BuildChatbotResponse()
+	{
+		String response = "I ";
+		int random = (int)(Math.random() * topics.length);
+		
+		random = (int)(Math.random() * topics.length);
+		response = " " + topics[random] + ".\n";
+		
+		random = (int)(Math.random() * topics.length);
+		response = " " + questions[random];
+		
+		return response;
 	}
 	
 	public boolean lengthChecker(String input)
