@@ -38,7 +38,7 @@ public class Chatbot
 		buildTopics();
 		buildCuteAnimals();
 	}
-
+	//Builds the list of movies
 	private void buildMovieList()
 	{
 		Movie Spiderman = new Movie("Spiderman");
@@ -46,7 +46,7 @@ public class Chatbot
 		movieList.add(Spiderman);
 		movieList.add(HiddenFigures);
 	}
-	
+	//Builds list of topics for the bot to use
 	private void buildTopics()
 	{
 		topics[0] = ("Animals");
@@ -58,7 +58,7 @@ public class Chatbot
 		topics[6] = ("Fun things");
 		
 	}
-	
+	//Builds the shopping list
 	private void buildShoppingList()
 	{
 		shoppingList.add("snacks");
@@ -67,7 +67,7 @@ public class Chatbot
 		shoppingList.add("candy");
 		shoppingList.add("fruit");
 	}
-	
+	//Builds the animal memes
 	private void buildCuteAnimals()
 	{
 		cuteAnimalMemes.add("otter");
@@ -75,7 +75,7 @@ public class Chatbot
 		cuteAnimalMemes.add("kittie");
 		cuteAnimalMemes.add("pupper");
 	}
-	
+	//Builds verbs
 	private void buildVerbs()
 	{
 		verbs[0] = "like";
@@ -83,7 +83,7 @@ public class Chatbot
 		verbs[2] = "am ambivalent about";
 		verbs[3] = "am thinking about";
 	}
-	
+	//Builds questions for the bot
 	private void buildQuestions()
 	{
 		questions[0] = "What is your name?";
@@ -97,7 +97,7 @@ public class Chatbot
 		questions[8] = "What kind of music do you like?";
 		questions[9] = "What are you afraid of?";
 	}
-	
+	//Processes input to the bot
 	public String processConversation(String input)
 	{
 		String chatboxResponse = "";
@@ -107,7 +107,7 @@ public class Chatbot
 		
 		return chatboxResponse;
 	}
-	
+	//Creates the bot's response
 	private String BuildChatbotResponse()
 	{
 		String response = "I ";
@@ -123,7 +123,7 @@ public class Chatbot
 		
 		return response;
 	}
-	
+	//Tests the input's length
 	public boolean lengthChecker(String input)
 	{
 		boolean test = true;
@@ -154,7 +154,7 @@ public class Chatbot
 	{
 		return false;
 	}
-	
+	//Checks the animal memes
 	public boolean cuteAnimalMemeChecker(String input)
 	{
 		boolean test = false;
@@ -168,7 +168,7 @@ public class Chatbot
 		}
 		return test;
 	}
-	
+	//Checks the shopping list
 	public boolean shoppingListChecker(String shoppingItem)
 	{
 		boolean test = false;
@@ -182,17 +182,17 @@ public class Chatbot
 		}
 		return test;
 	}
-	
+	//Checks movies for their titles
 	public boolean movieTitleChecker(String title)
 	{
 		return false;
 	}
-	
+	//Checks movies for their Genres
 	public boolean movieGenreChecker(String genre)
 	{
 		return false;
 	}
-
+	//Tests if the user types quit
 	public boolean quitChecker(String exitString)
 	{
 		if(exitString == null)
@@ -205,7 +205,7 @@ public class Chatbot
 		}
 		return false;
 	}
-
+	//Prevents simple mashing of the keyboard
 	public boolean keyboardMashChecker(String sample)
 	{
 		String [] mash = {"sdf","SDF","dfg","cvb",",./","kjh","DFG","CVB","KJH"};
@@ -220,12 +220,12 @@ public class Chatbot
 		}
 		return false;
 	}
-	
+	//toString
 	public String toString()
 	{
 		return "";
 	}
-	
+	//Getters/////////////////////////
 	public List<Movie> getMovieList()
 	{
 		return movieList;
@@ -280,7 +280,7 @@ public class Chatbot
 	{
 		return currentTime;
 	}
-	
+	//Setters///////////////////////////
 	public void setUsername(String username)
 	{
 		this.username = username;

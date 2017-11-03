@@ -90,10 +90,6 @@ public class Movie
 
 	public void setStarScore(double starScore)
 	{
-		if(starScore < 1)
-		{
-			starScore = 1;
-		}
 		this.starScore = starScore;
 	}
 	
