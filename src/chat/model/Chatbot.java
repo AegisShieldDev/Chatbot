@@ -36,11 +36,15 @@ public class Chatbot
 		buildShoppingList();
 		buildQuestions();
 		buildTopics();
+		buildCuteAnimals();
 	}
 
 	private void buildMovieList()
 	{
-		
+		Movie Spiderman = new Movie("Spiderman");
+		Movie HiddenFigures = new Movie("Hidden Figures");
+		movieList.add(Spiderman);
+		movieList.add(HiddenFigures);
 	}
 	
 	private void buildTopics()
@@ -57,16 +61,19 @@ public class Chatbot
 	
 	private void buildShoppingList()
 	{
-		shoppingList.add("Snacks");
-		shoppingList.add("Veggies");
-		shoppingList.add("Protine");
-		shoppingList.add("Candy");
-		shoppingList.add("Fruit");
+		shoppingList.add("snacks");
+		shoppingList.add("veggies");
+		shoppingList.add("protein");
+		shoppingList.add("candy");
+		shoppingList.add("fruit");
 	}
 	
 	private void buildCuteAnimals()
 	{
-		
+		cuteAnimalMemes.add("otter");
+		cuteAnimalMemes.add("FLOOFER");
+		cuteAnimalMemes.add("kittie");
+		cuteAnimalMemes.add("pupper");
 	}
 	
 	private void buildVerbs()
@@ -150,16 +157,28 @@ public class Chatbot
 	
 	public boolean cuteAnimalMemeChecker(String input)
 	{
-		return false;
+		boolean test = false;
+		
+		for(int i = 0; i < cuteAnimalMemes.size(); i++)
+		{
+			if(input.contains(cuteAnimalMemes.get(i)))
+			{
+				test = true;
+			}
+		}
+		return test;
 	}
 	
 	public boolean shoppingListChecker(String shoppingItem)
 	{
 		boolean test = false;
 		
-		if(shoppingItem.contains("protine") && shoppingItem.contains("veggies") && shoppingItem.contains("snacks") && !shoppingItem.contains("slug bait"))
+		for(int i = 0; i < shoppingList.size(); i++)
 		{
-			test = true;
+			if(shoppingItem.contains(shoppingList.get(i)))
+			{
+				test = true;
+			}
 		}
 		return test;
 	}
@@ -189,10 +208,12 @@ public class Chatbot
 
 	public boolean keyboardMashChecker(String sample)
 	{
-		String mash = "qwertyuiop[]asdfghjkl;'zxcvbnm,.//.,mnbvcxz';lkjhgfdsa][poiuytrewq";
-		for(int i = 0; i < mash.length()-2; i++)
+		String [] mash = {"sdf","SDF","dfg","cvb",",./","kjh","DFG","CVB","KJH"};
+		
+		
+		for(String letter : mash)
 		{
-			if(sample.equalsIgnoreCase(mash.substring(i, i+3)))
+			if(sample.contains(letter))
 			{
 				return true;
 			}
