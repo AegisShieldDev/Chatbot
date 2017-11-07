@@ -19,8 +19,18 @@ public class Movie
 		this.ratingMPAA = "G";
 		this.review = "default with more words";
 		this.length = 100;
-		this.releaseDate = releaseDate;
+		this.releaseDate = LocalDate.now();
 		this.starScore = 1.0;
+	}
+	public Movie(String title, String genre, String ratingMPAA, String review, int length, LocalDate releaseDate, double starScore)
+	{
+		this.title = title;
+		this.genre = genre;
+		this.ratingMPAA = ratingMPAA;
+		this.review = review;
+		this.length = length;
+		this.releaseDate = releaseDate;
+		this.starScore = starScore;
 	}
 
 	public String getTitle()

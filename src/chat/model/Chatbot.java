@@ -1,6 +1,7 @@
 package chat.model;
 
 import java.util.List;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
@@ -25,9 +26,9 @@ public class Chatbot
 		this.cuteAnimalMemes = new ArrayList<String>();
 		this.questions = new String[10];
 		this.username = username;
-		this.content = "";
+		this.content = "content";
 		this.intro = "";
-		this.currentTime = null;
+		this.currentTime = LocalTime.now();
 		this.topics = new String[7];
 		this.verbs = new String[4];
 		this.followUps = new String[5];
@@ -37,12 +38,23 @@ public class Chatbot
 		buildQuestions();
 		buildTopics();
 		buildCuteAnimals();
+		buildMovieList();
 	}
 	//Builds the list of movies
 	private void buildMovieList()
 	{
-		Movie Spiderman = new Movie("Spiderman");
-		Movie HiddenFigures = new Movie("Hidden Figures");
+		Movie TwoTowers 		= new Movie("Two Towers", 		"Adventure", 	"Good", "This is a very popular movie", 	200, LocalDate.now(), 5.0);
+		Movie Ironman 		= new Movie("Ironman",			"Action", 		"Good", "This is a very good movie", 	200, LocalDate.now(), 5.0);
+		Movie Avengers 		= new Movie("Avengers", 			"Action", 		"Good", "This is a very popular movie", 	200, LocalDate.now(), 5.0);
+		Movie Spiderman 		= new Movie("Spiderman",			"Action", 		"Good", "This is a very good movie", 	200, LocalDate.now(), 5.0);
+		Movie Thor 			= new Movie("Thor", 				"Action", 		"Good", "This is a very funny movie", 	200, LocalDate.now(), 5.0);
+		Movie Pokemon 		= new Movie("Pokemon", 			"Anime", 		"Good", "This is a very cute movie", 	200, LocalDate.now(), 5.0);
+		Movie HiddenFigures 	= new Movie("Hidden Figures", 	"Historical",	"Good", "This is a very good movie,", 	200, LocalDate.now(), 5.0);
+		movieList.add(TwoTowers);
+		movieList.add(Ironman);
+		movieList.add(Avengers);
+		movieList.add(Pokemon);
+		movieList.add(Thor);
 		movieList.add(Spiderman);
 		movieList.add(HiddenFigures);
 	}
@@ -66,6 +78,12 @@ public class Chatbot
 		shoppingList.add("protein");
 		shoppingList.add("candy");
 		shoppingList.add("fruit");
+		shoppingList.add("oreos");
+		shoppingList.add("cereal");
+		shoppingList.add("chips");
+		shoppingList.add("salsa");
+		shoppingList.add("gum");
+		shoppingList.add("pasta");
 	}
 	//Builds the animal memes
 	private void buildCuteAnimals()
@@ -121,6 +139,14 @@ public class Chatbot
 		random = (int)(Math.random() * questions.length);
 		response += " " + questions[random];
 		
+		random = (int)(Math.random() * 2);
+		
+		if(random % 2 == 0)
+		{
+			random = (int)(Math.random() * movieList.size());
+			response += "\n" + movieList.get(random).getTitle() + "is a great movie!";
+		}
+		
 		return response;
 	}
 	//Tests the input's length
@@ -147,12 +173,35 @@ public class Chatbot
 	
 	public boolean userNameChecker(String input)
 	{
+		if(input == null)
+		{
+			return false;
+		}
+		else if(input.length() < 2)
+		{
+			return false;
+		}
+		else if(input.charAt(0) == '@' && !input.substring(1, input.length()).contains("@"))
+		{
+			return true;
+		}
+		
+		
 		return false;
 	}
 	
 	public boolean contentChecker(String contentCheck)
 	{
+		if(content.length() < 6)
+		{
+			return false;
+		}
+		if(contentCheck.toLowerCase().contains(content.toLowerCase()))
+		{
+			return true;
+		}
 		return false;
+		
 	}
 	//Checks the animal memes
 	public boolean cuteAnimalMemeChecker(String input)
@@ -184,13 +233,35 @@ public class Chatbot
 	}
 	//Checks movies for their titles
 	public boolean movieTitleChecker(String title)
-	{
-		return false;
+	{	
+		if(title == null)
+		{
+			return false;
+		}
+		else if(title.equals(""))
+		{
+			return false;
+		}
+		else 
+		{
+			return true;
+		}
 	}
 	//Checks movies for their Genres
 	public boolean movieGenreChecker(String genre)
 	{
-		return false;
+		if(genre == null)
+		{
+			return false;
+		}
+		else if(genre.equals(""))
+		{
+			return false;
+		}
+		else 
+		{
+			return true;
+		}
 	}
 	//Tests if the user types quit
 	public boolean quitChecker(String exitString)
@@ -288,7 +359,14 @@ public class Chatbot
 	
 	public void setContent(String content)
 	{
-		this.content = content;
+		if(content != null)
+		{
+			this.content = content;
+		}
+		else
+		{
+			this.content = "";
+		}
 	}
 	
 	

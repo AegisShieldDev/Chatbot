@@ -93,7 +93,7 @@ public class ChatbotTest
 		String newContent = "adasffadga";
 		testedChatbot.setContent(newContent);
 		assertTrue("Changed content should also work", testedChatbot.contentChecker("adasffadga sfd sdf sdsdf "));
-		
+	 
 	}
 
 	@Test
