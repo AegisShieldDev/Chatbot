@@ -115,7 +115,11 @@ public class Chatbot
 		questions[8] = "What kind of music do you like?";
 		questions[9] = "What are you afraid of?";
 	}
-	//Processes input to the bot
+	/**
+	 * ProcessConversation is called by the controller when input is received to create a response to the users input
+	 * @param The user inputed response
+	 * @return the chatbot's response after processing the conversation
+	 */
 	public String processConversation(String input)
 	{
 		String chatboxResponse = "";
@@ -125,7 +129,10 @@ public class Chatbot
 		
 		return chatboxResponse;
 	}
-	//Creates the bot's response
+	/**
+	 * Builds the response of the chatbot for use in processConversation
+	 * @return The chatbot's response statement
+	 */
 	private String BuildChatbotResponse()
 	{
 		String response = "I ";
@@ -168,6 +175,27 @@ public class Chatbot
 	
 	public boolean htmlTagChecker(String input)
 	{
+		if(input.length() <= 2) 
+		{
+			return false;
+		}
+		if(input.toLowerCase().contains("href"))
+		{
+			if(input.toLowerCase().contains("="))
+			{
+				return true;
+			}
+			return false;
+		}
+		if(input.contains("<") && input.contains(">") && input.contains("/"))
+		{
+			return true;
+		}
+		if(input.toLowerCase().contains("<p>") || input.toLowerCase().contains("<br>"))
+		{
+			return true;
+		}
+		
 		return false;
 	}
 	
