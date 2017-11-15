@@ -5,13 +5,14 @@ import javax.swing.JFrame;
 
 public class ChatFrame extends JFrame
 {
-	public ChatController appController;
+	private ChatController appController;
+	//private ChatPanel appPanel;
 	
 	public ChatFrame(ChatController appController)
 	{
 		super();
 		this.appController = appController;
-		appPane = new ChatPanel(appController);
+		//appPanel = new ChatPanel(appController);
 		setupFrame();
 	}
 	
@@ -20,7 +21,7 @@ public class ChatFrame extends JFrame
 		this.setSize(600,600);
 		this.setTitle("Chatting with the chatbot");
 		this.setResizable(false);
-		this.setContentPane(appPane);
+		//this.setContentPane(appPanel);
 		this.setVisible(true);
 	}
 }
