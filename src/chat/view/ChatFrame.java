@@ -1,14 +1,14 @@
 package chat.view;
 
-import chat.controller.ChatController;
+import chat.controller.ChatbotController;
 import javax.swing.JFrame;
 
 public class ChatFrame extends JFrame
 {
-	private ChatController appController;
+	private ChatbotController appController;
 	private ChatPanel appPanel;
 	
-	public ChatFrame(ChatController appController)
+	public ChatFrame(ChatbotController appController)
 	{
 		super();
 		this.appController = appController;
@@ -23,5 +23,10 @@ public class ChatFrame extends JFrame
 		this.setTitle("Chatting with the chatbot");
 		this.setResizable(false);
 		this.setVisible(true);
+	}
+	
+	public ChatbotController getBaseController()
+	{
+		return(appController);
 	}
 }

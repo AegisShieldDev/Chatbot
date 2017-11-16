@@ -4,7 +4,7 @@ import chat.model.Chatbot;
 import chat.view.ChatFrame;
 import chat.view.PopupDisplay;
 
-public class ChatController
+public class ChatbotController
 {
 	private Chatbot chatbot;
 	private PopupDisplay display;
@@ -13,7 +13,7 @@ public class ChatController
 	
 	
 	//Creates the chatbot
-	public ChatController()
+	public ChatbotController()
 	{
 		chatbot = new Chatbot("Wyatt Miller");
 		display = new PopupDisplay();
@@ -27,13 +27,6 @@ public class ChatController
 		String response = display.getResponse("What do you want to talk about?");
 		
 		
-		/*
-		while (chatbot.lengthChecker(response) && !chatbot.quitChecker(response))
-		{
-			response = popupChat(response);
-			response = display.getResponse(response);
-		}
-		*/
 	}
 	
 	//processed whenever the chatbot gets input. Passes code to processConversation for the rest of the words.
@@ -44,5 +37,14 @@ public class ChatController
 		chatbotSays += chatbot.processConversation(chat);
 		
 		return chatbotSays;
+	}
+	
+	public PopupDisplay getDisplay()
+	{
+		return display;
+	}
+	public Chatbot getChatbot()
+	{
+		return chatbot;
 	}
 }
