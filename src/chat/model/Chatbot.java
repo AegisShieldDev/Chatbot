@@ -27,7 +27,7 @@ public class Chatbot
 		this.questions = new String[10];
 		this.username = username;
 		this.content = "content";
-		this.intro = "";
+		this.intro = "I am a chatbot to talk to! I can talk about TOONS of things.";
 		this.currentTime = LocalTime.now();
 		this.topics = new String[7];
 		this.verbs = new String[4];

@@ -56,6 +56,11 @@ public class ChatbotController
 		return chatbot;
 	}
 	
+	public ChatFrame getChatFrame()
+	{
+		return appFrame;
+	}
+	
 	/**
 	 * Controls interaction with the chatbot
 	 * @param input
