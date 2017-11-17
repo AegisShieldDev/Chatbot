@@ -218,7 +218,11 @@ public class Chatbot
 		
 		return false;
 	}
-	
+	/**
+	 * Checks for a valid username input
+	 * @param input
+	 * @return boolean
+	 */
 	public boolean userNameChecker(String input)
 	{
 		if(input == null)
@@ -237,7 +241,11 @@ public class Chatbot
 		
 		return false;
 	}
-	
+	/**
+	 * Checks the content, making sure its valid
+	 * @param contentCheck
+	 * @return boolean
+	 */
 	public boolean contentChecker(String contentCheck)
 	{
 		if(content.length() < 6)
@@ -251,7 +259,11 @@ public class Chatbot
 		return false;
 		
 	}
-	//Checks the animal memes
+	/**
+	 * Checks the cute animal memes
+	 * @param input
+	 * @return boolean
+	 */
 	public boolean cuteAnimalMemeChecker(String input)
 	{
 		boolean test = false;
@@ -265,7 +277,11 @@ public class Chatbot
 		}
 		return test;
 	}
-	//Checks the shopping list
+	/**
+	 * Checks the shopping list
+	 * @param shoppingItem
+	 * @return boolean
+	 */
 	public boolean shoppingListChecker(String shoppingItem)
 	{
 		boolean test = false;
@@ -279,7 +295,11 @@ public class Chatbot
 		}
 		return test;
 	}
-	//Checks movies for their titles
+	/**
+	 * Checks the title of movies
+	 * @param title
+	 * @return boolean
+	 */
 	public boolean movieTitleChecker(String title)
 	{	
 		if(title == null)
@@ -295,7 +315,11 @@ public class Chatbot
 			return true;
 		}
 	}
-	//Checks movies for their Genres
+	/**
+	 * Checks movie genres
+	 * @param genre
+	 * @return boolean
+	 */
 	public boolean movieGenreChecker(String genre)
 	{
 		if(genre == null)
@@ -311,7 +335,11 @@ public class Chatbot
 			return true;
 		}
 	}
-	//Tests if the user types quit
+	/**
+	 * Looks for the input of quit
+	 * @param exitString
+	 * @return boolean
+	 */
 	public boolean quitChecker(String exitString)
 	{
 		if(exitString == null)
@@ -324,7 +352,11 @@ public class Chatbot
 		}
 		return false;
 	}
-	//Prevents simple mashing of the keyboard
+	/**
+	 * Prevents simple mashing of the keyboard
+	 * @param sample
+	 * @return boolean
+	 */
 	public boolean keyboardMashChecker(String sample)
 	{
 		String [] mash = {"sdf","SDF","dfg","cvb",",./","kjh","DFG","CVB","KJH"};
@@ -339,72 +371,115 @@ public class Chatbot
 		}
 		return false;
 	}
-	//toString
+	/**
+	 * Overrides toString
+	 */
 	public String toString()
 	{
 		return "";
 	}
 	//Getters/////////////////////////
+	/**
+	 * Getter for movie list
+	 * @return movie list
+	 */
 	public List<Movie> getMovieList()
 	{
 		return movieList;
 	}
-	
+	/**
+	 * Getter for shopping list
+	 * @return shoppingList
+	 */
 	public List<String> getShoppingList()
 	{
 		return shoppingList;
 	}
-	
+	/**
+	 * Getter for cute animal memes
+	 * @return cuteAnimalMemes
+	 */
 	public List<String> getCuteAnimalMemes()
 	{
 		return cuteAnimalMemes;
 	}
-
+	/**
+	 * Getter for Questions
+	 * @return questions
+	 */
 	public String [] getQuestions()
 	{
 		return questions;
 	}
-	
+	/**
+	 * Getter for verbs
+	 * @return verbs
+	 */
 	public String[] getVerbs()
 	{
 		return verbs;
 	}
-
+	/**
+	 * Getter for Topics
+	 * @return topics
+	 */
 	public String[] getTopics()
 	{
 		return topics;
 	}
-
+	/**
+	 * Getter for Follow ups
+	 * @return followUps
+	 */
 	public String[] getFollowUps()
 	{
 		return followUps;
 	}
-
+	/**
+	 * Getter for username
+	 * @return username
+	 */
 	public String getUsername()
 	{
 		return username;
 	}
-	
+	/**
+	 * Getter for content
+	 * @return content
+	 */
 	public String getContent()
 	{
 		return content;
 	}
-
+	/**
+	 * Getter for intro
+	 * @return intro
+	 */
 	public String getIntro()
 	{
 		return intro;
 	}
-	
+	/**
+	 * Getter for the current time
+	 * @return currentTime
+	 */
 	public LocalTime getCurrentTime()
 	{
 		return currentTime;
 	}
 	//Setters///////////////////////////
+	/**
+	 * Setter for the username
+	 * @param username
+	 */
 	public void setUsername(String username)
 	{
 		this.username = username;
 	}
-	
+	/**
+	 * Setter for content
+	 * @param content
+	 */
 	public void setContent(String content)
 	{
 		if(content != null)

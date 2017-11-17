@@ -25,6 +25,10 @@ public class ChatPanel extends JPanel
 	private JTextArea chatArea;
 	private SpringLayout appLayout;
 	
+	/**
+	 * Creator of the ChatPanel
+	 * @param appController
+	 */
 	public ChatPanel(ChatbotController appController)
 	{
 		super();
@@ -45,7 +49,9 @@ public class ChatPanel extends JPanel
 		setupLayout();
 		setupListeners();
 	}
-	
+	/**
+	 * Setups the panel, adding buttons and other features
+	 */
 	private void setupPanel()
 	{
 		this.setBackground(Color.cyan);
@@ -61,6 +67,9 @@ public class ChatPanel extends JPanel
 		chatArea.setEditable(false);
 		
 	}
+	/**
+	 * Provides formatting for parts setup
+	 */
 	private void setupLayout()
 	{
 		appLayout.putConstraint(SpringLayout.WEST, chatArea, 25, SpringLayout.WEST, this);
@@ -71,6 +80,9 @@ public class ChatPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.SOUTH, chatButton, -21, SpringLayout.SOUTH, this);
 		appLayout.putConstraint(SpringLayout.EAST, chatButton, 0, SpringLayout.EAST, chatArea);
 	}
+	/**
+	 * Adds listeners to various parts
+	 */
 	private void setupListeners()
 	{
 		chatButton.addActionListener(new ActionListener() 
