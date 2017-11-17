@@ -22,29 +22,22 @@ public class ChatbotController
 		appFrame = new ChatFrame(this);
 	}
 	
-	
 	/**
 	 * Called by the runner
 	 */
 	public void start()
 	{
-		String response = display.getResponse("What do you want to talk about?");
-		
-		
 	}
+
 	/**
-	*processed whenever the chatbot gets input. Passes code to processConversation for the rest of the words.
-	*@param String chat
-	*@return String chatbotSays
-	*/
-	private String popupChat(String chat)
+	 * Quits Chatbot
+	 */
+	private void close()
 	{
-		String chatbotSays = "";
-		
-		chatbotSays += chatbot.processConversation(chat);
-		
-		return chatbotSays;
+		display.displayText("Goodbye");
+		System.exit(0);
 	}
+	
 	/*
 	 * Getter for the display
 	 * @return display
@@ -53,6 +46,7 @@ public class ChatbotController
 	{
 		return display;
 	}
+	
 	/*
 	 * Getter for the chatbot
 	 * @return chatbot
@@ -60,5 +54,24 @@ public class ChatbotController
 	public Chatbot getChatbot()
 	{
 		return chatbot;
+	}
+	
+	/**
+	 * Controls interaction with the chatbot
+	 * @param input
+	 * @return interaction
+	 */
+	public String interactWithChatbot(String input)
+	{
+		String interact = "";
+		
+		if(chatbot.quitChecker(input))
+		{
+			close();
+		}
+		
+		interact += chatbot.processConversation(input);
+		
+		return interact;
 	}
 }

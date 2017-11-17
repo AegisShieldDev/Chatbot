@@ -19,7 +19,7 @@ public class ChatPanel extends JPanel
 	private ChatbotController appController;
 	private JTextField inputField;
 	private JButton chatButton;
-	private JButton passButton;
+	private JButton checkerButton;
 	private JButton passButtonDos;
 	private JButton passButtonTres;
 	private JTextArea chatArea;
@@ -36,7 +36,7 @@ public class ChatPanel extends JPanel
 		
 		//Init		
 		chatButton = new JButton("chat");
-		passButton = new JButton("pass");
+		checkerButton = new JButton("pass");
 		passButtonDos = new JButton();
 		passButtonTres = new JButton();
 		inputField = new JTextField(20);
@@ -49,6 +49,8 @@ public class ChatPanel extends JPanel
 		setupLayout();
 		setupListeners();
 	}
+	
+	
 	/**
 	 * Setups the panel, adding buttons and other features
 	 */
@@ -59,7 +61,7 @@ public class ChatPanel extends JPanel
 		this.add(chatButton);
 		this.add(inputField);
 		this.add(chatArea);
-		this.add(passButton);
+		this.add(checkerButton);
 		this.add(passButtonDos);
 		this.add(passButtonTres);
 		
@@ -67,6 +69,7 @@ public class ChatPanel extends JPanel
 		chatArea.setEditable(false);
 		
 	}
+	
 	/**
 	 * Provides formatting for parts setup
 	 */
@@ -80,6 +83,7 @@ public class ChatPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.SOUTH, chatButton, -21, SpringLayout.SOUTH, this);
 		appLayout.putConstraint(SpringLayout.EAST, chatButton, 0, SpringLayout.EAST, chatArea);
 	}
+	
 	/**
 	 * Adds listeners to various parts
 	 */
@@ -89,12 +93,26 @@ public class ChatPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
+				String userText = inputField.getText();
+				String displayText = appController.interactWithChatbot(userText);
+				chatArea.append(displayText);
+				inputField.setText("");
 			}
 		});
-		passButton.addActionListener(new ActionListener() 
+		checkerButton.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent click)
 			{
+			}
+		});
+		inputField.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String userText = inputField.getText();
+				String displayText = appController.interactWithChatbot(userText);
+				chatArea.append(displayText);
+				inputField.setText("");
 			}
 		});
 		passButtonDos.addActionListener(new ActionListener() 

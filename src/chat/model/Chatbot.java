@@ -40,6 +40,7 @@ public class Chatbot
 		buildCuteAnimals();
 		buildMovieList();
 	}
+	
 	/**
 	 * Builds the list of movies
 	 */
@@ -60,6 +61,7 @@ public class Chatbot
 		movieList.add(Spiderman);
 		movieList.add(HiddenFigures);
 	}
+	
 	/**
 	 * Builds the list of topics
 	 */
@@ -74,6 +76,7 @@ public class Chatbot
 		topics[6] = ("Fun things");
 		
 	}
+	
 	/**
 	 * Builds the shopping list
 	 */
@@ -91,6 +94,7 @@ public class Chatbot
 		shoppingList.add("gum");
 		shoppingList.add("pasta");
 	}
+	
 	/**
 	 * Builds the list of cute animals
 	 */
@@ -101,6 +105,7 @@ public class Chatbot
 		cuteAnimalMemes.add("kittie");
 		cuteAnimalMemes.add("pupper");
 	}
+	
 	/*
 	 * Builds the list of verbs
 	 */
@@ -111,6 +116,7 @@ public class Chatbot
 		verbs[2] = "am ambivalent about";
 		verbs[3] = "am thinking about";
 	}
+	
 	/**
 	 * Builds the list of questions
 	 */
@@ -127,6 +133,7 @@ public class Chatbot
 		questions[8] = "What kind of music do you like?";
 		questions[9] = "What are you afraid of?";
 	}
+
 	/**
 	 * ProcessConversation is called by the controller when input is received to create a response to the users input
 	 * @param The user inputed response
@@ -141,6 +148,7 @@ public class Chatbot
 		
 		return chatboxResponse;
 	}
+
 	/**
 	 * Builds the response of the chatbot for use in processConversation
 	 * @return The chatbot's response statement
@@ -163,11 +171,12 @@ public class Chatbot
 		if(random % 2 == 0)
 		{
 			random = (int)(Math.random() * movieList.size());
-			response += "\n" + movieList.get(random).getTitle() + "is a great movie!";
+			response += "\n" + movieList.get(random).getTitle() + "is a great movie!" + "\n";
 		}
 		
 		return response;
 	}
+	
 	/**
 	 * Checks the length of the string input
 	 * @param input
@@ -188,6 +197,7 @@ public class Chatbot
 		
 		return (test);
 	}
+	
 	/**
 	 * Checks for valid html tags in the input
 	 * @param input
@@ -218,8 +228,8 @@ public class Chatbot
 		
 		return false;
 	}
+	
 	/**
-	 * Checks for a valid username input
 	 * @param input
 	 * @return boolean
 	 */
@@ -241,6 +251,7 @@ public class Chatbot
 		
 		return false;
 	}
+	
 	/**
 	 * Checks the content, making sure its valid
 	 * @param contentCheck
@@ -259,6 +270,7 @@ public class Chatbot
 		return false;
 		
 	}
+
 	/**
 	 * Checks the cute animal memes
 	 * @param input
@@ -277,6 +289,7 @@ public class Chatbot
 		}
 		return test;
 	}
+
 	/**
 	 * Checks the shopping list
 	 * @param shoppingItem
@@ -295,6 +308,7 @@ public class Chatbot
 		}
 		return test;
 	}
+
 	/**
 	 * Checks the title of movies
 	 * @param title
@@ -315,6 +329,7 @@ public class Chatbot
 			return true;
 		}
 	}
+
 	/**
 	 * Checks movie genres
 	 * @param genre
@@ -335,6 +350,7 @@ public class Chatbot
 			return true;
 		}
 	}
+
 	/**
 	 * Looks for the input of quit
 	 * @param exitString
@@ -352,6 +368,7 @@ public class Chatbot
 		}
 		return false;
 	}
+
 	/**
 	 * Prevents simple mashing of the keyboard
 	 * @param sample
@@ -371,6 +388,7 @@ public class Chatbot
 		}
 		return false;
 	}
+
 	/**
 	 * Overrides toString
 	 */
@@ -378,7 +396,9 @@ public class Chatbot
 	{
 		return "";
 	}
+
 	//Getters/////////////////////////
+
 	/**
 	 * Getter for movie list
 	 * @return movie list
@@ -387,6 +407,7 @@ public class Chatbot
 	{
 		return movieList;
 	}
+	
 	/**
 	 * Getter for shopping list
 	 * @return shoppingList
@@ -395,6 +416,7 @@ public class Chatbot
 	{
 		return shoppingList;
 	}
+
 	/**
 	 * Getter for cute animal memes
 	 * @return cuteAnimalMemes
@@ -403,6 +425,7 @@ public class Chatbot
 	{
 		return cuteAnimalMemes;
 	}
+
 	/**
 	 * Getter for Questions
 	 * @return questions
@@ -411,6 +434,7 @@ public class Chatbot
 	{
 		return questions;
 	}
+
 	/**
 	 * Getter for verbs
 	 * @return verbs
@@ -419,6 +443,7 @@ public class Chatbot
 	{
 		return verbs;
 	}
+
 	/**
 	 * Getter for Topics
 	 * @return topics
@@ -427,6 +452,7 @@ public class Chatbot
 	{
 		return topics;
 	}
+
 	/**
 	 * Getter for Follow ups
 	 * @return followUps
@@ -435,6 +461,7 @@ public class Chatbot
 	{
 		return followUps;
 	}
+
 	/**
 	 * Getter for username
 	 * @return username
@@ -443,6 +470,7 @@ public class Chatbot
 	{
 		return username;
 	}
+
 	/**
 	 * Getter for content
 	 * @return content
@@ -451,6 +479,7 @@ public class Chatbot
 	{
 		return content;
 	}
+
 	/**
 	 * Getter for intro
 	 * @return intro
@@ -459,6 +488,7 @@ public class Chatbot
 	{
 		return intro;
 	}
+
 	/**
 	 * Getter for the current time
 	 * @return currentTime
@@ -467,7 +497,9 @@ public class Chatbot
 	{
 		return currentTime;
 	}
+
 	//Setters///////////////////////////
+	
 	/**
 	 * Setter for the username
 	 * @param username
@@ -476,6 +508,7 @@ public class Chatbot
 	{
 		this.username = username;
 	}
+	
 	/**
 	 * Setter for content
 	 * @param content
