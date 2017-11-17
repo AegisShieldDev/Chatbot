@@ -40,7 +40,9 @@ public class Chatbot
 		buildCuteAnimals();
 		buildMovieList();
 	}
-	//Builds the list of movies
+	/**
+	 * Builds the list of movies
+	 */
 	private void buildMovieList()
 	{
 		Movie TwoTowers 		= new Movie("Two Towers", 		"Adventure", 	"Good", "This is a very popular movie", 	200, LocalDate.now(), 5.0);
@@ -58,7 +60,9 @@ public class Chatbot
 		movieList.add(Spiderman);
 		movieList.add(HiddenFigures);
 	}
-	//Builds list of topics for the bot to use
+	/**
+	 * Builds the list of topics
+	 */
 	private void buildTopics()
 	{
 		topics[0] = ("Animals");
@@ -70,7 +74,9 @@ public class Chatbot
 		topics[6] = ("Fun things");
 		
 	}
-	//Builds the shopping list
+	/**
+	 * Builds the shopping list
+	 */
 	private void buildShoppingList()
 	{
 		shoppingList.add("snacks");
@@ -85,7 +91,9 @@ public class Chatbot
 		shoppingList.add("gum");
 		shoppingList.add("pasta");
 	}
-	//Builds the animal memes
+	/**
+	 * Builds the list of cute animals
+	 */
 	private void buildCuteAnimals()
 	{
 		cuteAnimalMemes.add("otter");
@@ -93,7 +101,9 @@ public class Chatbot
 		cuteAnimalMemes.add("kittie");
 		cuteAnimalMemes.add("pupper");
 	}
-	//Builds verbs
+	/*
+	 * Builds the list of verbs
+	 */
 	private void buildVerbs()
 	{
 		verbs[0] = "like";
@@ -101,7 +111,9 @@ public class Chatbot
 		verbs[2] = "am ambivalent about";
 		verbs[3] = "am thinking about";
 	}
-	//Builds questions for the bot
+	/**
+	 * Builds the list of questions
+	 */
 	private void buildQuestions()
 	{
 		questions[0] = "What is your name?";
@@ -156,7 +168,11 @@ public class Chatbot
 		
 		return response;
 	}
-	//Tests the input's length
+	/**
+	 * Checks the length of the string input
+	 * @param input
+	 * @return true/false
+	 */
 	public boolean lengthChecker(String input)
 	{
 		boolean test = true;
@@ -172,7 +188,11 @@ public class Chatbot
 		
 		return (test);
 	}
-	
+	/**
+	 * Checks for valid html tags in the input
+	 * @param input
+	 * @return true/false
+	 */
 	public boolean htmlTagChecker(String input)
 	{
 		if(input.length() <= 2) 

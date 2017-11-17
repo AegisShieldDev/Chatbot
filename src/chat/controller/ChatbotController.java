@@ -12,7 +12,9 @@ public class ChatbotController
 	//private ChatFrame appFrame;
 	
 	
-	//Creates the chatbot
+	/**
+	 * Creates the chatbot, popup display, and chat frame
+	 */
 	public ChatbotController()
 	{
 		chatbot = new Chatbot("Wyatt Miller");
@@ -21,15 +23,20 @@ public class ChatbotController
 	}
 	
 	
-	//Startup method for bot, initial window
+	/**
+	 * Called by the runner
+	 */
 	public void start()
 	{
 		String response = display.getResponse("What do you want to talk about?");
 		
 		
 	}
-	
-	//processed whenever the chatbot gets input. Passes code to processConversation for the rest of the words.
+	/**
+	*processed whenever the chatbot gets input. Passes code to processConversation for the rest of the words.
+	*@param String chat
+	*@return String chatbotSays
+	*/
 	private String popupChat(String chat)
 	{
 		String chatbotSays = "";
@@ -38,11 +45,18 @@ public class ChatbotController
 		
 		return chatbotSays;
 	}
-	
+	/*
+	 * Getter for the display
+	 * @return display
+	 */
 	public PopupDisplay getDisplay()
 	{
 		return display;
 	}
+	/*
+	 * Getter for the chatbot
+	 * @return chatbot
+	 */
 	public Chatbot getChatbot()
 	{
 		return chatbot;

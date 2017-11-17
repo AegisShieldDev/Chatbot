@@ -8,6 +8,10 @@ public class ChatFrame extends JFrame
 	private ChatbotController appController;
 	private ChatPanel appPanel;
 	
+	/**
+	 * creates the ChatFrame, calls setupframe
+	 * @param ChatbotController appController
+	 */
 	public ChatFrame(ChatbotController appController)
 	{
 		super();
@@ -15,7 +19,9 @@ public class ChatFrame extends JFrame
 		appPanel = new ChatPanel(appController);
 		setupFrame();
 	}
-	
+	/**
+	 * Sets the settings for the chatframe
+	 */
 	private void setupFrame()
 	{	
 		this.setContentPane(appPanel);
@@ -24,7 +30,10 @@ public class ChatFrame extends JFrame
 		this.setResizable(false);
 		this.setVisible(true);
 	}
-	
+	/**
+	 * Getter for the appController
+	 * @return
+	 */
 	public ChatbotController getBaseController()
 	{
 		return(appController);
