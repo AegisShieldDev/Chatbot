@@ -33,12 +33,22 @@ public class Chatbot
 		this.verbs = new String[4];
 		this.followUps = new String[5];
 		
+		buildFollowUps();
 		buildVerbs();
 		buildShoppingList();
 		buildQuestions();
 		buildTopics();
 		buildCuteAnimals();
 		buildMovieList();
+	}
+	
+	private void buildFollowUps()
+	{
+		followUps[0] = "One";
+		followUps[1] = "Two";
+		followUps[2] = "Three";
+		followUps[3] = "Four";
+		followUps[4] = "Five";
 	}
 	
 	/**
@@ -174,6 +184,29 @@ public class Chatbot
 			response += "\n" + movieList.get(random).getTitle() + "is a great movie!" + "\n";
 		}
 		
+		if(random % 2 == 0)
+		{
+			random = (int)(Math.random() * movieList.size());
+			response += "\n" + movieList.get(random).getTitle() + "is a great movie!" + "\n";
+		}
+		
+		int followup = (int)(Math.random() * 5);
+				
+		switch(followup)
+		{
+		case 0:
+			response += followUps[0] + "\n";
+			break;
+		case 3:
+			response += followUps[1] + "\n";
+		case 1:
+			response += followUps[2] + "\n";
+		default: 
+			response += followUps[4] + "\n";
+			response += followUps[3] + "\n";
+			break;
+		}
+		
 		return response;
 	}
 	
@@ -205,6 +238,10 @@ public class Chatbot
 	 */
 	public boolean htmlTagChecker(String input)
 	{
+		String test = "TEST";
+		String test2 = "TEST2";
+		
+		
 		if(input.length() <= 2) 
 		{
 			return false;
@@ -219,7 +256,18 @@ public class Chatbot
 		}
 		if(input.contains("<") && input.contains(">") && input.contains("/"))
 		{
-			return true;
+			test = input.substring(input.indexOf("<"), input.indexOf(">")+1);
+			test2 = input.substring(input.indexOf("</"), input.indexOf(">", input.indexOf(">")+1));
+			
+			
+			test = test.substring(1,test.length()-1);
+			test2 = test2.substring(2, test2.length()-1);
+			
+			
+			if(test.toLowerCase().contains(test2.toLowerCase()))
+			{
+				return true;
+			}
 		}
 		if(input.toLowerCase().contains("<p>") || input.toLowerCase().contains("<br>"))
 		{
@@ -227,9 +275,11 @@ public class Chatbot
 		}
 		
 		return false;
+		
 	}
 	
 	/**
+	 * Checks for a valid username
 	 * @param input
 	 * @return boolean
 	 */

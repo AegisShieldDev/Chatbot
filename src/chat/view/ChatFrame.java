@@ -19,6 +19,7 @@ public class ChatFrame extends JFrame
 		appPanel = new ChatPanel(appController);
 		setupFrame();
 	}
+	
 	/**
 	 * Sets the settings for the chatframe
 	 */
@@ -30,6 +31,7 @@ public class ChatFrame extends JFrame
 		this.setResizable(false);
 		this.setVisible(true);
 	}
+	
 	/**
 	 * Getter for the appController
 	 * @return

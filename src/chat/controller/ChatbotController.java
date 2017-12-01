@@ -4,6 +4,13 @@ import chat.model.Chatbot;
 import chat.view.ChatFrame;
 import chat.view.PopupDisplay;
 
+/**
+ * Manages the chatbot application including model and frame of the view package
+ * @author Wyatt Miller
+ * @version 21.11.17
+ */
+
+
 public class ChatbotController
 {
 	private Chatbot chatbot;
@@ -56,6 +63,10 @@ public class ChatbotController
 		return chatbot;
 	}
 	
+	/**
+	 * Getter for chatframe
+	 * @return ChatFrame
+	 */
 	public ChatFrame getChatFrame()
 	{
 		return appFrame;
@@ -79,4 +90,44 @@ public class ChatbotController
 		
 		return interact;
 	}
+	
+	public String useCheckers(String text)
+	{
+		String response  ="";
+		
+		if(chatbot.contentChecker(text))
+		{
+			response += "This text matches the special content\n";
+		}
+		if(chatbot.cuteAnimalMemeChecker(text))
+		{
+			response += "This text matches the cuteAnimalMemeChecker";
+		}
+		if(chatbot.htmlTagChecker(text))
+		{
+			response += "This text matches the htmlTagChecker";
+		}
+		if(chatbot.keyboardMashChecker(text))
+		{
+			response += "This text matches the keyboardMashChecker";
+		}
+		if(chatbot.movieGenreChecker(text))
+		{
+			response += "This text matches the movieGenreChecker";
+		}
+		if(chatbot.movieTitleChecker(text))
+		{
+			response += "This text matches the movieTitleChecker";
+		}
+		if(chatbot.shoppingListChecker(text))
+		{
+			response += "This text matches the shoppingListChecker";
+		}
+		if(chatbot.userNameChecker(text))
+		{
+			response += "This text matches the UsernameChecker";
+		}
+		return response;
+	}
+	
 }
