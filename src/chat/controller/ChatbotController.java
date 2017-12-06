@@ -91,6 +91,11 @@ public class ChatbotController
 		return interact;
 	}
 	
+	/**
+	 * Runs all the checkers onto inputted text
+	 * @param text
+	 * @return response
+	 */
 	public String useCheckers(String text)
 	{
 		String response  ="";

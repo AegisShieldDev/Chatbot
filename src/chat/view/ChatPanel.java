@@ -48,7 +48,7 @@ public class ChatPanel extends JPanel
 		});
 		passButtonTres = new JButton();
 		inputField = new JTextField(20);
-		chatArea = 0new JTextArea(10,25);
+		chatArea = new JTextArea(10,25);
 		appLayout = new SpringLayout();
 		chatScrollPane = new JScrollPane();
 		infoLabel = new JLabel();
@@ -59,6 +59,9 @@ public class ChatPanel extends JPanel
 		setupScrollPane();
 	}
 	
+	/**
+	 * Sets up the Scroll pane within the text area
+	 */
 	private void setupScrollPane()
 	{
 		chatScrollPane.setViewportView(chatArea);
@@ -69,7 +72,7 @@ public class ChatPanel extends JPanel
 	}
 	
 	/**
-	 * Setups the panel, adding buttons and other features
+	 * Sets up the panel, adding buttons and other features
 	 */
 	private void setupPanel()
 	{
@@ -109,10 +112,11 @@ public class ChatPanel extends JPanel
 	}
 	
 	/**
-	 * Adds listeners to various parts
+	 * Adds listeners to various parts including the chat button, check button, input field, and passButtons
 	 */
 	private void setupListeners()
 	{
+		
 		chatButton.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent click)
@@ -123,7 +127,7 @@ public class ChatPanel extends JPanel
 				inputField.setText("");
 			}
 		});
-		checkerButton.addActionListener(new ActionListener() 
+		passButtonDos.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent click)
 			{

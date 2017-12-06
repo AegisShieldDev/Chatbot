@@ -42,6 +42,9 @@ public class Chatbot
 		buildMovieList();
 	}
 	
+	/**
+	 * Builds the list of followUps
+	 */
 	private void buildFollowUps()
 	{
 		followUps[0] = "One";
