@@ -154,12 +154,14 @@ public class Chatbot
 	 */
 	public String processConversation(String input)
 	{
-		String chatboxResponse = "";
-		chatboxResponse += "You said:" + "\n"  + input + "\n";
+		String chatbotResponse = "";
+		currentTime = LocalTime.now();
+		chatbotResponse += currentTime.getHour() + ":" + currentTime.getMinute() + " ";
+		chatbotResponse += "You said:" + "\n"  + input + "\n";
 		
-		chatboxResponse += BuildChatbotResponse();
+		chatbotResponse += BuildChatbotResponse();
 		
-		return chatboxResponse;
+		return chatbotResponse;
 	}
 
 	/**
@@ -218,7 +220,7 @@ public class Chatbot
 	 * @param input
 	 * @return true/false
 	 */
-	public boolean lengthChecker(String input)
+	public boolean lengthChecker(String input) 
 	{
 		boolean test = true;
 		
