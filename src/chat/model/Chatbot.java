@@ -47,11 +47,11 @@ public class Chatbot
 	 */
 	private void buildFollowUps()
 	{
-		followUps[0] = "One";
-		followUps[1] = "Two";
-		followUps[2] = "Three";
-		followUps[3] = "Four";
-		followUps[4] = "Five";
+		followUps[0] = "Do you like cats?";
+		followUps[1] = "Did you have a good day?";
+		followUps[2] = "What is your facorite food?";
+		followUps[3] = "What time is it there?";
+		followUps[4] = "What is your favorite song?";
 	}
 	
 	/**
