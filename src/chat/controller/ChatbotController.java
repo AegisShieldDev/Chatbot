@@ -18,7 +18,10 @@ public class ChatbotController
 	private ChatFrame appFrame;
 	//private ChatFrame appFrame;
 	
-	
+	public void handleErrors(Exception error)
+	{
+		
+	}
 	/**
 	 * Creates the chatbot, popup display, and chat frame
 	 */
