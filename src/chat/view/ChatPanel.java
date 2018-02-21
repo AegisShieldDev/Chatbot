@@ -31,14 +31,12 @@ public class ChatPanel extends JPanel
 		loadButton = new JButton("Load", new ImageIcon(getClass().getResource("/chat/view/images/load.png")));
 		tweetButton = new JButton("Twitter", new ImageIcon(getClass().getResource("/chat/view/images/twitter.png")));
 		searchButton = new JButton("Search", new ImageIcon(getClass().getResource("/chat/view/images/search.png")));
-		chatArea = new JTextArea(25,25);
 		inputField = new JTextField(20);
 		infoLabel = new JLabel();
 		appLayout = new SpringLayout();
-		
 		chatScrollPane = new JScrollPane();
-		
 		checkerButton = new JButton("Check");
+		
 		
 		
 		setupScrollPane();
@@ -53,7 +51,6 @@ public class ChatPanel extends JPanel
 	 */
 	private void setupScrollPane()
 	{
-		chatScrollPane.setViewportView(chatArea);
 		chatScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		chatScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		chatArea.setLineWrap(true);
@@ -76,6 +73,9 @@ public class ChatPanel extends JPanel
 		this.add(chatScrollPane);
 		this.add(checkerButton);
 		this.add(infoLabel);
+		chatArea = new JTextArea(20,25);
+		
+		add(chatArea);
 		
 		chatArea.setEnabled(false);
 		chatArea.setEditable(false);
@@ -90,19 +90,27 @@ public class ChatPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.WEST, chatScrollPane, 25, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.EAST, chatScrollPane, -25, SpringLayout.EAST, this);
 		appLayout.putConstraint(SpringLayout.NORTH, chatScrollPane, 49, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.SOUTH, saveButton, 0, SpringLayout.SOUTH, loadButton);
-		appLayout.putConstraint(SpringLayout.EAST, saveButton, -6, SpringLayout.WEST, loadButton);
-		appLayout.putConstraint(SpringLayout.NORTH, loadButton, 10, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.EAST, loadButton, 0, SpringLayout.EAST, chatButton);
-		appLayout.putConstraint(SpringLayout.WEST, inputField, 0, SpringLayout.WEST, chatScrollPane);
-		appLayout.putConstraint(SpringLayout.EAST, chatButton, 0, SpringLayout.EAST, chatScrollPane);
-		appLayout.putConstraint(SpringLayout.EAST, checkerButton, 0, SpringLayout.EAST, chatScrollPane);
-		appLayout.putConstraint(SpringLayout.NORTH, checkerButton, -70, SpringLayout.SOUTH, this);
-		appLayout.putConstraint(SpringLayout.SOUTH, checkerButton, -50, SpringLayout.SOUTH, this);
-		appLayout.putConstraint(SpringLayout.NORTH, chatButton, -40, SpringLayout.SOUTH, this);
-		appLayout.putConstraint(SpringLayout.SOUTH, chatButton, -20, SpringLayout.SOUTH, this);
-		appLayout.putConstraint(SpringLayout.NORTH, inputField, -40, SpringLayout.SOUTH, this);
-		appLayout.putConstraint(SpringLayout.SOUTH, inputField, -20, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, inputField, -22, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.NORTH, searchButton, 6, SpringLayout.SOUTH, tweetButton);
+		appLayout.putConstraint(SpringLayout.NORTH, chatButton, 0, SpringLayout.NORTH, loadButton);
+		appLayout.putConstraint(SpringLayout.WEST, chatButton, 6, SpringLayout.EAST, inputField);
+		appLayout.putConstraint(SpringLayout.EAST, chatButton, -68, SpringLayout.WEST, searchButton);
+		appLayout.putConstraint(SpringLayout.WEST, searchButton, 462, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.EAST, inputField, -370, SpringLayout.EAST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, tweetButton, -76, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.EAST, tweetButton, -8, SpringLayout.WEST, saveButton);
+		appLayout.putConstraint(SpringLayout.WEST, inputField, 25, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.NORTH, loadButton, 449, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, saveButton, -6, SpringLayout.NORTH, loadButton);
+		appLayout.putConstraint(SpringLayout.EAST, loadButton, 0, SpringLayout.EAST, saveButton);
+		appLayout.putConstraint(SpringLayout.NORTH, inputField, 93, SpringLayout.SOUTH, chatArea);
+		appLayout.putConstraint(SpringLayout.WEST, chatArea, 25, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.EAST, chatArea, -25, SpringLayout.EAST, this);
+		appLayout.putConstraint(SpringLayout.NORTH, chatArea, 11, SpringLayout.SOUTH, chatScrollPane);
+		appLayout.putConstraint(SpringLayout.WEST, checkerButton, 0, SpringLayout.WEST, chatButton);
+		appLayout.putConstraint(SpringLayout.SOUTH, checkerButton, -2, SpringLayout.NORTH, chatButton);
+		appLayout.putConstraint(SpringLayout.EAST, checkerButton, 0, SpringLayout.EAST, chatButton);
+		appLayout.putConstraint(SpringLayout.EAST, saveButton, 0, SpringLayout.EAST, chatScrollPane);
 	}
 	
 	/**
