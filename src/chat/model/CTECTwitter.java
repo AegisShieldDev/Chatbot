@@ -1,4 +1,4 @@
-package chat.view;
+package chat.model;
 
 import chat.controller.ChatbotController;
 

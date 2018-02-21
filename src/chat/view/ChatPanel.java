@@ -129,10 +129,32 @@ public class ChatPanel extends JPanel
 				inputField.setText("");
 			}
 		});
+		tweetButton.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				appController.tweet(inputField.getText());
+			}
+		});
+		searchButton.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				
+			}
+		});
+		saveButton.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				
+			}
+		});
 		loadButton.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent click)
 			{
+				
 			}
 		});
 		inputField.addActionListener(new ActionListener() 
@@ -155,12 +177,7 @@ public class ChatPanel extends JPanel
 				inputField.setText("");
 			}
 		});
-		saveButton.addActionListener(new ActionListener() 
-		{
-			public void actionPerformed(ActionEvent click)
-			{
-			}
-		});
+		
 		
 	}
 }
