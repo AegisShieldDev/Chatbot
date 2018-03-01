@@ -146,4 +146,9 @@ public class ChatbotController
 		return response;
 	}
 	
+	public String search(String text)
+	{
+		return myTwitter.getMostCommonWord(text);
+	}
+	
 }
