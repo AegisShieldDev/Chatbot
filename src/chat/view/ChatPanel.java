@@ -187,8 +187,5 @@ public class ChatPanel extends JPanel
 		
 	}
 	
-	public String search(String text)
-	{
-		return myTwitter.getMostCommonWord(text);
-	}
+	
 }
