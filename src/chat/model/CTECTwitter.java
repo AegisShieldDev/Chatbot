@@ -6,6 +6,7 @@ import chat.controller.IOController;
 import twitter4j.*;
 import java.util.Scanner;
 import java.util.List;
+import java.util.Map;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.text.DecimalFormat;
@@ -54,9 +55,33 @@ public class CTECTwitter
 		turnStatusesToWords();
 		totalWordCount = tweetedWords.size();
 		String [] boring = createIgnoredWordArray();
+		trimTheBoringWords(boring);
+		removeBlanks();
+		generateWordCount();
 		
+		ArrayList<Map.Entry<String, Integer>> sorted = sortHashMap();
+		
+		String mostCommonWord = sorted.get(0).getKey();
+		int maxWord = 0;
+		
+		maxWord = sorted.get(0).getValue();
+		
+		mostCommon = "The most common word in " + username + "'s " + searchedTweets.size() + " tweets is " +
+					mostCommonWord + ", and it was used " + maxWord + " times. \nThis is " +
+					(DecimalFormat.getPercentInstance().format(((double) maxWord)/totalWordCount)) +
+					"of total words: " + totalWordCount + " and this is " +
+					(DecimalFormat.getPercentInstance().format(((double) maxWord)/wordsAndCount.size())) +
+					" of the unique words: " + wordsAndCount.size();
 		return mostCommon;
 		
+	}
+	
+	private ArrayList<Map.Entry<String, Integer>> sortHashMap()
+	{
+		ArrayList<Map.Entry<String, Integer>> entries = new ArrayList<Map.Entry<String, Integer>>(wordsAndCount.entrySet());
+		entries.sort((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));
+		
+		return entries; 
 	}
 	
 	private void collectTweets(String username)
@@ -120,7 +145,7 @@ public class CTECTwitter
 		{
 			for(int removeIndex = 0; removeIndex < boringWords.length; removeIndex++)
 			{
-				if(tweetedWords.get(index).equals(boringWords[removeIndex]));
+				if(tweetedWords.get(index).equalsIgnoreCase(boringWords[removeIndex]));
 				{
 					tweetedWords.remove(index);
 				}
@@ -133,6 +158,7 @@ public class CTECTwitter
 		for(Status currentStatus : searchedTweets)
 		{
 			String tweetText = currentStatus.getText();
+			tweetText = tweetText.replaceAll("\n", " ");
 			String [] tweetWords = tweetText.split(" ");
 			for(int index = 0; index < tweetWords.length; index++)
 			{
