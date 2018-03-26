@@ -72,8 +72,86 @@ public class CTECTwitter
 					"of total words: " + totalWordCount + " and this is " +
 					(DecimalFormat.getPercentInstance().format(((double) maxWord)/wordsAndCount.size())) +
 					" of the unique words: " + wordsAndCount.size();
+		
+		mostCommon += "\n\n" + sortedWords();
+		
 		return mostCommon;
 		
+	}
+	
+	private String sortedWords()
+	{
+		String allWords = "";
+		String [] words = new String [wordsAndCount.size()];
+		ArrayList<String> wordList = new ArrayList<String>(wordsAndCount.keySet());
+		
+		for(int index = 0; index < wordsAndCount.size(); index++) 
+		{
+			words[index] = wordList.get(index);
+		}
+		for(int index = 0; index < words.length -1; index++) 
+		{
+			int maxIndex = index;
+			
+			for(int inner = index + 1; inner < words.length; inner++) 
+			{
+				if(words[inner].compareTo(words[maxIndex]) > 0)
+				{
+					maxIndex = inner;
+				}
+			}
+			
+			String tempMax = words[maxIndex];
+			words[maxIndex] = words[index];
+			words[index] = tempMax;
+		}
+		for(String word : words) 
+		{
+			allWords += word + ", ";
+		}
+		
+		return allWords;
+	}
+	
+	public String analyzeTwitterForTopic(String topic)
+	{
+		String results = "";
+		searchedTweets.clear();
+		Query twitterQuery = new Query(topic);
+		int resultMax = 750;
+		long lastId = Long.MAX_VALUE;
+		twitterQuery.setGeoCode(new GeoLocation(40.7128, 74.0060),  100,  Query.MILES);
+		twitterQuery.setLang("English");
+		twitterQuery.setSince("2018-09-27");
+		ArrayList<Status> matchingTweets = new ArrayList<Status>();
+		while(searchedTweets.size() < resultMax)
+		{
+			try
+			{
+				QueryResult resultingTweets = chatbotTwitter.search(twitterQuery);
+				
+				for(Status currentTweet: resultingTweets.getTweets())
+				{
+					if(currentTweet.getId() < lastId)
+					{
+						matchingTweets.add(currentTweet);
+					}
+				}
+			}
+			catch(TwitterException error)
+			{
+				appController.handleErrors(error);
+			}
+			
+			twitterQuery.setMaxId(lastId - 1);
+		}
+		
+		results += "Talk about the search results";
+		results += "Find a tweet that will pass one of the checkers in chatbot";
+		
+		int randomTweet = (int)(Math.random() * matchingTweets.size());
+		results += matchingTweets.get(randomTweet);
+		return results;
 	}
 	
 	private ArrayList<Map.Entry<String, Integer>> sortHashMap()
@@ -157,7 +235,7 @@ public class CTECTwitter
 	{
 		for(Status currentStatus : searchedTweets)
 		{
-			String tweetText = currentStatus.getText();
+			String tweetText = currentStatus.getText().toLowerCase();
 			tweetText = tweetText.replaceAll("\n", " ");
 			String [] tweetWords = tweetText.split(" ");
 			for(int index = 0; index < tweetWords.length; index++)
